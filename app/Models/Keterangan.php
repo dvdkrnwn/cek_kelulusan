@@ -9,7 +9,7 @@ class Keterangan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Keterangan_Id'];
+    protected $fillable = ['Name_Keterangan'];
 
     public function Mahasiswa() {
         return $this->hasMany(Mahasiswa::class);
