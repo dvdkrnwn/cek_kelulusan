@@ -15,7 +15,95 @@
 
                 <!-- Content -->
 
-                <h4 class="fw-bold p-4">Blank Page</h4>
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl col-12 demo-inline-spacing" >
+                        <button type="button" class="btn btn-primary">Tambah Data</button>
+                        <button
+                                id="btnGroupDrop1"
+                                type="button"
+                                class="btn btn-secondary dropdown-toggle"
+                                >Angkatan
+                        </button>
+                        <button
+                                id="btnGroupDrop1"
+                                type="button"
+                                class="btn btn-secondary dropdown-toggle"
+                                >Status
+                        </button>
+                    </div>
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                      <!-- Basic Bootstrap Table -->
+                      <div class="card">
+                        <h5 class="card-header">Daftar Mahasiswa</h5>
+                        <div class="table-responsive text-nowrap">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Nomor Induk Mahasiswa</th>
+                                <th>IPS 1</th>
+                                <th>IPS 2</th>
+                                <th>IPS 3</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Prediksi</th>
+                              </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-success me-1">Tepat Waktu</span></td>
+                              </tr>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>1.5</td>
+                                <td>3.96</td>
+                                <td>2.4</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-warning me-1">Tidak Tepat Waktu</span></td>
+                              </tr>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-success me-1">Tepat Waktu</span></td>
+                              </tr>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>1.5</td>
+                                <td>3.96</td>
+                                <td>2.4</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-warning me-1">Tidak Tepat Waktu</span></td>
+                              </tr>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-success me-1">Tepat Waktu</span></td>
+                              </tr>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>213140714111000</strong></td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>3.96</td>
+                                <td>Laki - Laki</td>
+                                <td><span class="badge bg-label-success me-1">Tepat Waktu</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!--/ Basic Bootstrap Table -->
+                      
 
                 <!-- / Content -->
 
