@@ -30,9 +30,20 @@ Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
 
 Route::get('/profile', [ProfileController::class, 'Profile'])->name('profile');
-Route::get('/prediksi-kelulusan', [PrediksiKelulusan::class, 'PrediksiKelulusanView'])->name('prediksi_kelulusan');
+
+
+Route::name('predict.')->prefix('/predict')->group(function() {
+    Route::get('/list', [PrediksiKelulusan::class, 'PrediksiKelulusanView'])->name('list');
+    Route::get('/add', [PrediksiKelulusan::class, 'PrediksiKelulusanAdd'])->name('add');
+    Route::post('/post', [PrediksiKelulusan::class, 'PrediksiKelulusan'])->name('process');
+});
 
 Route::name('manage.')->prefix('/manage')->group(function () {
     Route::get('/user/list', [ManageController::class, 'Manage_User_List'])->name('user_list');
+    Route::get('/user/add', [ManageController::class, 'Manage_User_Show_Add'])->name('user_show_add');
+    Route::post('/user/add', [ManageController::class, 'Manage_User_Add'])->name('user_add');
+
+    Route::post('/user/nonactive/{id}', [ManageController::class, 'Manage_User_NonActive'])->name('user_edit_is_active');
+
 });
 

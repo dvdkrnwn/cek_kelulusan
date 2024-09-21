@@ -20,11 +20,8 @@
                     <!-- Content -->
 
                     <div class="container-xxl col-12 demo-inline-spacing">
-                        <button type="button" class="btn btn-primary">Tambah Data</button>
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle">Angkatan
-                        </button>
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle">Status
-                        </button>
+                        <a type="button" href="{{ route('manage.user_show_add') }}" class="btn btn-primary">Tambah
+                            Data</a>
                     </div>
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <!-- Basic Bootstrap Table -->
@@ -56,8 +53,21 @@
                                                     <div class="d-flex">
                                                         <button type="button"
                                                             class="btn btn-primary me-2">Edit</button>
-                                                        <button type="button" class="btn btn-danger">Non
-                                                            Active</button>
+                                                        <form
+                                                            action="{{ route('manage.user_edit_is_active', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @if ($item->Is_Active == true)
+                                                                <button type="submit" name="Is_Active" value="false"
+                                                                    class="btn btn-danger">Non
+                                                                    Active</button>
+                                                            @else
+                                                                <button type="submit" name="Is_Active" value="true"
+                                                                    class="btn btn-success">Re-
+                                                                    Active
+                                                                </button>
+                                                            @endif
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>

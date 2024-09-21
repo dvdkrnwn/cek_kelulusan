@@ -69,7 +69,7 @@
             <span class="menu-header-text">Menu</span>
         </li>
         <li class="menu-item">
-            <a href="{{ route('prediksi_kelulusan') }}" class="menu-link">
+            <a href="{{ route('predict.list') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Prediksi Kelulusan</div>
             </a>

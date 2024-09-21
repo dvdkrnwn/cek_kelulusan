@@ -64,6 +64,12 @@
                         <h4 class="mb-2">Prediksi Kelulusan Mahasiswa</h4>
                         <p class="mb-4">Fakultas Vokasi Universitas Brawijaya</p>
 
+                        @error('loginErr')
+                            <div id="error-message" class="error-message" style="display: none">
+                                <p class="text-danger">Error, {{ $message }}</p>
+                            </div>
+                        @enderror
+
                         <form id="formAuthentication" action="{{ route('login') }}" method="POST" class="mb-3">
                             @csrf
                             <div class="mb-3">
@@ -97,6 +103,20 @@
     <script src="{{ asset('sneat') }}/assets/vendor/libs/popper/popper.js"></script>
     <script src="{{ asset('sneat') }}/assets/vendor/js/bootstrap.js"></script>
     <script src="{{ asset('sneat') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    @error('loginErr')
+        <script>
+            function showAlert() {
+                var alertBox = document.getElementById('error-message');
+                alertBox.style.display = 'block';
+                setTimeout(function() {
+                    alertBox.style.display = 'none';
+                }, 3000);
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                showAlert();
+            });
+        </script>
+    @enderror
 
     <script src="{{ asset('sneat') }}/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->

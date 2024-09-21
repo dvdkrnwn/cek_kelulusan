@@ -22,10 +22,8 @@ return new class extends Migration
             $table->string('IPS_4');
             $table->string('Jalur_Masuk');
             $table->string('Tahun_Angkatan');
-            $table->unsignedBigInteger('Keterangan_Id');
+            $table->string('Keterangan')->nullable();
             $table->timestamps();
-
-            $table->foreign('Keterangan_Id')->references('id')->on('keterangans')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 
