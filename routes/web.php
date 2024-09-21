@@ -35,3 +35,4 @@ Route::get('/prediksi-kelulusan', [PrediksiKelulusan::class, 'PrediksiKelulusanV
 Route::name('manage.')->prefix('/manage')->group(function () {
     Route::get('/user/list', [ManageController::class, 'Manage_User_List'])->name('user_list');
 });
+
