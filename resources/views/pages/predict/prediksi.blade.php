@@ -18,14 +18,57 @@
 
                 <div class="content-wrapper">
                     <!-- Content -->
+                    <div
+                        class="container-xxl col-12 demo-inline-spacing d-flex justify-content-between align-items-center">
+                        <!-- Left Side: Buttons and Dropdowns -->
+                        <div class="d-flex">
+                            <a type="button" href="{{ route('predict.add') }}" class="btn btn-primary me-3">Tambah
+                                Data</a>
+                            <div class="dropdown me-3">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Angkatan
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    @foreach ($angkatan as $tahun)
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('predict.list', ['year' => $tahun]) }}">{{ $tahun }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Status
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    @foreach ($keterangan as $t)
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('predict.list', ['status' => $t]) }}">{{ $t }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
 
-                    <div class="container-xxl col-12 demo-inline-spacing">
-                        <a type="button" href="{{ route('predict.add') }}" class="btn btn-primary">Tambah Data</a>
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle">Angkatan
-                        </button>
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle">Status
-                        </button>
+                        <!-- Right Side: Search Form -->
+                        <div class="d-flex justify-content-end">
+                            <form action="{{ route('predict.list') }}" method="GET">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-md-8">
+                                        <input type="text" id="NIM" class="form-control" name="NIM"
+                                            required placeholder="NIM" aria-describedby="NIM" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
+
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <!-- Basic Bootstrap Table -->
                         <div class="card">
@@ -45,7 +88,8 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        @forelse ($mahasiswa as $mahasiswa)
+                                        @php $no = ($mahasiswas->currentPage() - 1) * $mahasiswas->perPage() + 1; @endphp
+                                        @forelse ($mahasiswas as $mahasiswa)
                                             <tr>
                                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                                     <strong>{{ $mahasiswa->NIM }}</strong>
@@ -71,11 +115,17 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                Tidak Ada Data
+                                                <td colspan="8" class="text-center m-3">
+                                                    Tidak Ada Data
+                                                </td>
                                             </tr>
                                         @endforelse
                                     </tbody>
                                 </table>
+
+                                <div class="d-flex justify-content-end mt-3 me-2">
+                                    {{ $mahasiswas->links() }}
+                                </div>
                             </div>
                         </div>
                         <!--/ Basic Bootstrap Table -->

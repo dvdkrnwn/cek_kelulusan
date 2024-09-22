@@ -22,15 +22,16 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <!-- Basic Bootstrap Table -->
                         <div class="card">
-                            <h5 class="card-header">Add User</h5>
+                            <h5 class="card-header">Edit User</h5>
                             <div class="table-responsive text-nowrap m-3">
-                                <form id="formAuthentication" action="{{ route('manage.user_add') }}" method="POST"
-                                    class="mb-3">
+                                <form id="formAuthentication" action="{{ route('manage.user_edit', $data->Username) }}"
+                                    method="POST" class="mb-3">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" name="Name"
-                                            required placeholder="Enter your name" autofocus />
+                                            value="{{ $data->Name }}" required placeholder="Enter your name"
+                                            autofocus />
                                         @if ($errors->has('Name'))
                                             <div class="alert alert-danger mt-2">{{ $errors->first('Name') }}</div>
                                         @endif
@@ -38,7 +39,8 @@
                                     <div class="mb-3">
                                         <label for="Username" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="Username" name="Username"
-                                            required placeholder="Enter your Username" autofocus />
+                                            disabled value="{{ $data->Username }}" required
+                                            placeholder="Enter your Username" autofocus />
                                         @if ($errors->has('Username'))
                                             <div class="alert alert-danger mt-2">{{ $errors->first('Username') }}</div>
                                         @endif
@@ -46,7 +48,8 @@
                                     <div class="mb-3">
                                         <label for="Email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="Email" name="Email"
-                                            required placeholder="Enter your email or username" autofocus />
+                                            value="{{ $data->Email }}" required
+                                            placeholder="Enter your email or username" autofocus />
                                         @if ($errors->has('Email'))
                                             <div class="alert alert-danger mt-2">{{ $errors->first('Email') }}</div>
                                         @endif
@@ -56,15 +59,20 @@
                                             <div class="col-md-6">
                                                 <label for="Is_Active" class="form-label">Is_Active</label>
                                                 <select name="Is_Active" class="form-control" id="Is_Active" required>
-                                                    <option value="true"> ACTIVE </option>
-                                                    <option value="false"> INACTIVE </option>
+                                                    <option value="true"
+                                                        @if ($data->Is_Active == true) selected @endif> ACTIVE
+                                                    </option>
+                                                    <option value="false"
+                                                        @if ($data->Is_Active == false) selected @endif> INACTIVE
+                                                    </option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="Roles" class="form-label">Roles</label>
                                                 <select name="Role_Id" class="form-control" id="Roles" required>
                                                     @foreach ($roles as $role)
-                                                        <option value="{{ $role->id }}">
+                                                        <option value="{{ $role->id }}"
+                                                            @if ($data->Role_Id == $role->id) selected @endif>
                                                             {{ Str::upper($role->Roles_Name) }}
                                                         </option>
                                                     @endforeach
@@ -78,7 +86,6 @@
                                         </div>
                                         <div class="input-group input-group-merge">
                                             <input type="password" id="password" class="form-control" name="Password"
-                                                required
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 aria-describedby="password" />
                                             <span class="input-group-text cursor-pointer"><i

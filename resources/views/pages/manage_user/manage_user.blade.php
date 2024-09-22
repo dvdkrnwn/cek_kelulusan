@@ -51,8 +51,8 @@
                                                 <td>{{ $item->Roles->Roles_Name }}</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <button type="button"
-                                                            class="btn btn-primary me-2">Edit</button>
+                                                        <a href="{{ route('manage.user_edit', $item->Username) }}"
+                                                            type="button" class="btn btn-primary me-2">Edit</a>
                                                         <form
                                                             action="{{ route('manage.user_edit_is_active', $item->id) }}"
                                                             method="POST">

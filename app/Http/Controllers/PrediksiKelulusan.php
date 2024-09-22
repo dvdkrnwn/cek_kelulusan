@@ -10,18 +10,36 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PrediksiKelulusan extends Controller
 {
-    public function PrediksiKelulusanView() {
-        $mahasiswa = Mahasiswa::all();
-        return view('pages.predict.prediksi', compact('mahasiswa'));
+    public function PrediksiKelulusanView(Request $request)
+    {
+        $perPage = 10;
+        $mahasiswas = Mahasiswa::orderBy('id', 'desc');
+
+        if ($request->year) {
+            $mahasiswas = $mahasiswas->where('Tahun_Angkatan', $request->year);
+        } elseif ($request->status) {
+            $mahasiswas = $mahasiswas->where('Keterangan', $request->status);
+        } elseif ($request->NIM) {
+            $mahasiswas = $mahasiswas->where('NIM', $request->NIM);
+        }
+
+        $angkatan = Mahasiswa::distinct()->orderBy('Tahun_Angkatan', 'desc')->pluck('Tahun_Angkatan');
+        $keterangan = Mahasiswa::distinct()->pluck('Keterangan');
+        //dd($angkatan);
+        $mahasiswas = $mahasiswas->paginate($perPage);
+
+        return view('pages.predict.prediksi', compact('mahasiswas', 'angkatan', 'keterangan'));
     }
 
-    public function PrediksiKelulusanAdd() {
+    public function PrediksiKelulusanAdd()
+    {
         return view('pages.predict.prediksi_add');
     }
 
-    public function PrediksiKelulusan (Request $request) {
+    public function PrediksiKelulusan(Request $request)
+    {
         $request->validate([
-            'file' => 'required|mimes:xlsx,csv|file'
+            'file' => 'required|mimes:xlsx,csv|file',
         ]);
 
         $file = $request->file('file');
@@ -43,16 +61,16 @@ class PrediksiKelulusan extends Controller
 
             if ($res->successful()) {
                 Mahasiswa::create([
-                    'NIM' => $row["nim"], 
-                    'Name' => $row["nama"], 
-                    'J_Kelamin' => $row["jenis_kelamin"], 
-                    'IPS_1' => $row["ips_1"], 
-                    'IPS_2' => $row["ips_2"], 
-                    'IPS_3' => $row["ips_3"], 
-                    'IPS_4' => 0, 
-                    'Jalur_Masuk' => $row["jalur_masuk"], 
-                    'Tahun_Angkatan' => $row["tahun_angkatan"], 
-                    'Keterangan' => $res['data']
+                    'NIM' => $row['nim'],
+                    'Name' => $row['nama'],
+                    'J_Kelamin' => $row['jenis_kelamin'],
+                    'IPS_1' => $row['ips_1'],
+                    'IPS_2' => $row['ips_2'],
+                    'IPS_3' => $row['ips_3'],
+                    'IPS_4' => 0,
+                    'Jalur_Masuk' => $row['jalur_masuk'],
+                    'Tahun_Angkatan' => $row['tahun_angkatan'],
+                    'Keterangan' => $res['data'],
                 ]);
             }
 
