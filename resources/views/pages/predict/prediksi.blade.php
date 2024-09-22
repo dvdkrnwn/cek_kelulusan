@@ -107,6 +107,12 @@
                                                     @elseif ($mahasiswa->Keterangan == 'Tidak Tepat Waktu')
                                                         <span
                                                             class="badge bg-label-danger me-1">{{ $mahasiswa->Keterangan }}</span>
+                                                    @elseif ($mahasiswa->Keterangan == null)
+                                                        <form action="#" method="GET">
+                                                            @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Predict</button>
+                                                        </form>
                                                     @else
                                                         <span
                                                             class="badge bg-label-secondary me-1">{{ $mahasiswa->Keterangan }}</span>
@@ -124,7 +130,7 @@
                                 </table>
 
                                 <div class="d-flex justify-content-end mt-3 me-2">
-                                    {{ $mahasiswas->links() }}
+                                    {{ $mahasiswas->appends(request()->query())->links() }}
                                 </div>
                             </div>
                         </div>

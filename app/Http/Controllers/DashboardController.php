@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -25,7 +26,7 @@ class DashboardController extends Controller
             $l_ontime = Mahasiswa::where('Tahun_Angkatan', $request->year)->where('J_Kelamin', 'L')->where('Keterangan', 'Tepat Waktu')->get()->count();
             $l_late_time = $laki - $l_ontime;
 
-        } else {
+        } elseif ($tahun->count() != 0) {
             $query = Mahasiswa::where('Tahun_Angkatan', $tahun[0]);
             $total_mahasiswa = $query->get()->count();
             $tahun_data = $tahun[0];
@@ -39,6 +40,21 @@ class DashboardController extends Controller
             $laki = $total_mahasiswa - $perempuan;
             $l_ontime = Mahasiswa::where('Tahun_Angkatan', $tahun[0])->where('J_Kelamin', 'L')->where('Keterangan', 'Tepat Waktu')->get()->count();
             $l_late_time = $laki - $l_ontime;
+        } else {
+            $tahun = [
+                Carbon::now()->year,
+            ];
+            $total_mahasiswa = 0;
+            $tahun_data = $tahun[0];
+            $ontime = 0;
+            $late_time = 0;
+
+            $p_ontime = 0;
+            $p_late_time = 0;
+
+            $l_ontime = 0;
+            $l_late_time = 0;
+
         }
 
         return view('pages.beranda', compact('tahun', 'total_mahasiswa', 'tahun_data', 'ontime', 'late_time', 'p_ontime', 'p_late_time', 'l_ontime', 'l_late_time'));
