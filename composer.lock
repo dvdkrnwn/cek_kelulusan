@@ -525,12 +525,12 @@
             "version": "4.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/egulias/EmailValidator.git",
+                "url": "https://github.com/egulias/emailValidator.git",
                 "reference": "ebaaf5be6c0286928352e054f2d5125608e5405e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/ebaaf5be6c0286928352e054f2d5125608e5405e",
+                "url": "https://api.github.com/repos/egulias/emailValidator/zipball/ebaaf5be6c0286928352e054f2d5125608e5405e",
                 "reference": "ebaaf5be6c0286928352e054f2d5125608e5405e",
                 "shasum": ""
             },
@@ -554,7 +554,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Egulias\\EmailValidator\\": "src"
+                    "Egulias\\emailValidator\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -567,7 +567,7 @@
                 }
             ],
             "description": "A library for validating emails against several RFCs",
-            "homepage": "https://github.com/egulias/EmailValidator",
+            "homepage": "https://github.com/egulias/emailValidator",
             "keywords": [
                 "email",
                 "emailvalidation",
@@ -576,8 +576,8 @@
                 "validator"
             ],
             "support": {
-                "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/4.0.2"
+                "issues": "https://github.com/egulias/emailValidator/issues",
+                "source": "https://github.com/egulias/emailValidator/tree/4.0.2"
             },
             "funding": [
                 {
@@ -816,7 +816,7 @@
             },
             "suggest": {
                 "ext-curl": "Required for CURL handler support",
-                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+                "ext-intl": "Required for Internationalized Domain name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
             "type": "library",

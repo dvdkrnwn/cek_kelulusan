@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->string('Username');
-            $table->string('Email')->unique();
-            $table->string('Password');
-            $table->boolean('Is_Active');
-            $table->unsignedBigInteger('Role_Id');
+            $table->string('name');
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->boolean('is_active');
+            $table->unsignedBigInteger('role_id');
             $table->timestamps();
 
-            $table->foreign('Role_Id')->references('id')->on('roles')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

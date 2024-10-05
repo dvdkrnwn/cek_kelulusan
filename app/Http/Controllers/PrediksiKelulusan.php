@@ -71,7 +71,7 @@ class PrediksiKelulusan extends Controller
                 if ($res->successful() && $res['code'] == 201) {
                     Mahasiswa::create([
                         'NIM' => $row['nim'],
-                        'Name' => $row['nama'],
+                        'name' => $row['nama'],
                         'J_Kelamin' => $row['jenis_kelamin'],
                         'IPS_1' => $row['ips_1'],
                         'IPS_2' => $row['ips_2'],
@@ -84,7 +84,7 @@ class PrediksiKelulusan extends Controller
                 } else {
                     Mahasiswa::create([
                         'NIM' => $row['nim'],
-                        'Name' => $row['nama'],
+                        'name' => $row['nama'],
                         'J_Kelamin' => $row['jenis_kelamin'],
                         'IPS_1' => $row['ips_1'],
                         'IPS_2' => $row['ips_2'],
@@ -98,7 +98,7 @@ class PrediksiKelulusan extends Controller
             } catch (\Throwable $th) {
                 Mahasiswa::create([
                     'NIM' => $row['nim'],
-                    'Name' => $row['nama'],
+                    'name' => $row['nama'],
                     'J_Kelamin' => $row['jenis_kelamin'],
                     'IPS_1' => $row['ips_1'],
                     'IPS_2' => $row['ips_2'],

@@ -29,43 +29,43 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="Name"
+                                        <input type="text" class="form-control" id="name" name="name"
                                             required placeholder="Enter your name" autofocus />
-                                        @if ($errors->has('Name'))
-                                            <div class="alert alert-danger mt-2">{{ $errors->first('Name') }}</div>
+                                        @if ($errors->has('name'))
+                                            <div class="alert alert-danger mt-2">{{ $errors->first('name') }}</div>
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="Username" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="Username" name="Username"
-                                            required placeholder="Enter your Username" autofocus />
-                                        @if ($errors->has('Username'))
-                                            <div class="alert alert-danger mt-2">{{ $errors->first('Username') }}</div>
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username"
+                                            required placeholder="Enter your username" autofocus />
+                                        @if ($errors->has('username'))
+                                            <div class="alert alert-danger mt-2">{{ $errors->first('username') }}</div>
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="Email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="Email" name="Email"
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
                                             required placeholder="Enter your email or username" autofocus />
-                                        @if ($errors->has('Email'))
-                                            <div class="alert alert-danger mt-2">{{ $errors->first('Email') }}</div>
+                                        @if ($errors->has('email'))
+                                            <div class="alert alert-danger mt-2">{{ $errors->first('email') }}</div>
                                         @endif
                                     </div>
                                     <div class="mb-3">
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <label for="Is_Active" class="form-label">Is_Active</label>
-                                                <select name="Is_Active" class="form-control" id="Is_Active" required>
+                                                <label for="is_active" class="form-label">Is Active</label>
+                                                <select name="is_active" class="form-control" id="is_active" required>
                                                     <option value="true"> ACTIVE </option>
                                                     <option value="false"> INACTIVE </option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="Roles" class="form-label">Roles</label>
-                                                <select name="Role_Id" class="form-control" id="Roles" required>
+                                                <select name="role_id" class="form-control" id="Roles" required>
                                                     @foreach ($roles as $role)
                                                         <option value="{{ $role->id }}">
-                                                            {{ Str::upper($role->Roles_Name) }}
+                                                            {{ Str::upper($role->roles_name) }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -74,17 +74,17 @@
                                     </div>
                                     <div class="mb-3 form-password-toggle">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="password">Password</label>
+                                            <label class="form-label" for="password">password</label>
                                         </div>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="password" class="form-control" name="Password"
+                                            <input type="password" id="password" class="form-control" name="password"
                                                 required
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 aria-describedby="password" />
                                             <span class="input-group-text cursor-pointer"><i
                                                     class="bx bx-hide"></i></span>
-                                            @if ($errors->has('Password'))
-                                                <div class="alert alert-danger mt-2">{{ $errors->first('Password') }}
+                                            @if ($errors->has('password'))
+                                                <div class="alert alert-danger mt-2">{{ $errors->first('password') }}
                                                 </div>
                                             @endif
                                         </div>

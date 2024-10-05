@@ -77,7 +77,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Nomor Induk Mahasiswa</th>
+                                            <th>NIM</th>
                                             <th>Jalur Masuk</th>
                                             <th>Angkatan</th>
                                             <th>IPS 1</th>

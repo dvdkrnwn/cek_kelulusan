@@ -16,20 +16,20 @@ class UserSeeders extends Seeder
     {
         $user = [
             [
-                "Name" => 'Admin Cek Kelulusan',
-                "Username" => 'admin_cek',
-                "Email" => 'adminceklulus@gmail.com',
-                "Password" => Hash::make('passwordAdmin'),
-                "Is_Active" => true,
-                "Role_id" => 1
+                "name" => 'Admin Cek Kelulusan',
+                "username" => 'admin_cek',
+                "email" => 'adminceklulus@gmail.com',
+                "password" => Hash::make('password123'),
+                "is_active" => true,
+                "role_id" => 1
             ],
             [
-                "Name" => 'User Cek Kelulusan',
-                "Username" => 'user_cek',
-                "Email" => 'userceklulus@gmail.com',
-                "Password" => Hash::make('passwordUser'),
-                "Is_Active" => true,
-                "Role_id" => 2
+                "name" => 'User Cek Kelulusan',
+                "username" => 'user_cek',
+                "email" => 'userceklulus@gmail.com',
+                "password" => Hash::make('passwor123'),
+                "is_active" => true,
+                "role_id" => 2
             ]
         ];
 

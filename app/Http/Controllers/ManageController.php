@@ -25,7 +25,7 @@ class ManageController extends Controller
 
     public function Manage_User_Show_Edit($username)
     {
-        $data = User::where('Username', $username)->first();
+        $data = User::where('username', $username)->first();
         $roles = Roles::all();
 
         return view('pages.manage_user.manage_user_edit', compact('data', 'roles'));
@@ -34,36 +34,36 @@ class ManageController extends Controller
     public function Manage_User_Edit(Request $request, $username)
     {
         //dd($request->all());
-        if ($request->Password == null) {
+        if ($request->password == null) {
             $request->validate([
-                'Name' => 'required',
-                'Email' => 'required|email:dns',
-                'Role_Id' => 'required',
-                'Is_Active' => 'required',
+                'name' => 'required',
+                'email' => 'required|email:dns',
+                'role_id' => 'required',
+                'is_active' => 'required',
             ]);
 
             User::where('username', $username)->update([
-                'Name' => $request->Name,
-                'Email' => $request->Email,
-                'Role_Id' => $request->Role_Id,
-                'Is_Active' => $request->Is_Active == 'true' ? true : false,
+                'name' => $request->name,
+                'email' => $request->email,
+                'role_id' => $request->role_id,
+                'is_active' => $request->is_active == 'true' ? true : false,
             ]);
 
         } else {
             $request->validate([
-                'Name' => 'required',
-                'Email' => 'required|email:dns',
-                'Password' => 'required|min:8',
-                'Role_Id' => 'required',
-                'Is_Active' => 'required',
+                'name' => 'required',
+                'email' => 'required|email:dns',
+                'password' => 'required|min:8',
+                'role_id' => 'required',
+                'is_active' => 'required',
             ]);
 
             User::where('username', $username)->update([
-                'Name' => $request->Name,
-                'Email' => $request->Email,
-                'Password' => Hash::make($request->Password),
-                'Role_Id' => $request->Role_Id,
-                'Is_Active' => $request->Is_Active == 'true' ? true : false,
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role_id' => $request->role_id,
+                'is_active' => $request->is_active == 'true' ? true : false,
             ]);
 
         }
@@ -75,21 +75,21 @@ class ManageController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'Username' => 'required|unique:users|min:5',
-            'Name' => 'required',
-            'Email' => 'required|email:dns',
-            'Password' => 'required|min:8',
-            'Role_Id' => 'required',
-            'Is_Active' => 'required',
+            'username' => 'required|unique:users|min:5',
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'password' => 'required|min:8',
+            'role_id' => 'required',
+            'is_active' => 'required',
         ]);
 
         User::create([
-            'Username' => $request->Username,
-            'Name' => $request->Name,
-            'Email' => $request->Email,
-            'Password' => Hash::make($request->Password),
-            'Role_Id' => $request->Role_Id,
-            'Is_Active' => $request->Is_Active == 'true' ? true : false,
+            'username' => $request->username,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
+            'is_active' => $request->is_active == 'true' ? true : false,
         ]);
 
         return redirect()->route('manage.user_list');
@@ -98,7 +98,7 @@ class ManageController extends Controller
     public function Manage_User_NonActive(Request $request, $id)
     {
         User::where('id', $id)->update([
-            'Is_Active' => $request->Is_Active == 'true' ? true : false,
+            'is_active' => $request->is_active == 'true' ? true : false,
         ]);
 
         return redirect()->route('manage.user_list');

@@ -31,10 +31,10 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>NAMA</th>
+                                            <th>NAME</th>
                                             <th>EMAIL</th>
                                             <th>USERNAME</th>
-                                            <th>IS_ACTIVE</th>
+                                            <th>IS ACTIVE</th>
                                             <th>ROLES</th>
                                             <th>ACTION</th>
                                         </tr>
@@ -43,26 +43,26 @@
                                         @forelse ($user as $item)
                                             <tr>
                                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                                    <strong>{{ $item->Name }}</strong>
+                                                    <strong>{{ $item->name }}</strong>
                                                 </td>
-                                                <td>{{ $item->Email }}</td>
-                                                <td>{{ $item->Username }}</td>
-                                                <td>{{ $item->Is_Active == true ? 'Active' : 'Inactive' }}</td>
-                                                <td>{{ $item->Roles->Roles_Name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->username }}</td>
+                                                <td>{{ $item->is_active == true ? 'Active' : 'Inactive' }}</td>
+                                                <td>{{ $item->Roles->roles_name }}</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="{{ route('manage.user_edit', $item->Username) }}"
+                                                        <a href="{{ route('manage.user_edit', $item->username) }}"
                                                             type="button" class="btn btn-primary me-2">Edit</a>
                                                         <form
-                                                            action="{{ route('manage.user_edit_is_active', $item->id) }}"
+                                                            action="{{ route('manage.user_edit_password', $item->id) }}"
                                                             method="POST">
                                                             @csrf
-                                                            @if ($item->Is_Active == true)
-                                                                <button type="submit" name="Is_Active" value="false"
+                                                            @if ($item->is_active == true)
+                                                                <button type="submit" name="is_active" value="false"
                                                                     class="btn btn-danger">Non
                                                                     Active</button>
                                                             @else
-                                                                <button type="submit" name="Is_Active" value="true"
+                                                                <button type="submit" name="is_active" value="true"
                                                                     class="btn btn-success">Re-
                                                                     Active
                                                                 </button>

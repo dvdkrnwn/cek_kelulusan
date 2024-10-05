@@ -83,7 +83,7 @@ Run a task with specified environment(development/production) just execute the t
   - Account Settings
   - Login
   - Register
-  - Forgot Password
+  - Forgot password
   - Error
   - Under Maintenance
 - Cards
@@ -167,7 +167,7 @@ We use GitHub issues as support tickets to manage Item support.
 Contribution are always welcome and recommended! Here is how:
 
 - Fork the repository ([here is the guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
-- Clone to your machine `git clone https://github.com/YOUR_USERNAME/REPO_URL` Make your changes
+- Clone to your machine `git clone https://github.com/YOUR_username/REPO_URL` Make your changes
 - Create a pull request
 
 ### Contribution Requirements 🧰

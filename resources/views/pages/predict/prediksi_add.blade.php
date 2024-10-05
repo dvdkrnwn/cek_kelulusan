@@ -31,8 +31,8 @@
                                         <label for="name" class="form-label">Upload File Here</label>
                                         <input type="file" class="form-control" id="name" name="file"
                                             required placeholder="Enter your file" autofocus accept=".xlsx, .csv" />
-                                        @if ($errors->has('Name'))
-                                            <div class="alert alert-danger mt-2">{{ $errors->first('Name') }}</div>
+                                        @if ($errors->has('name'))
+                                            <div class="alert alert-danger mt-2">{{ $errors->first('name') }}</div>
                                         @endif
                                     </div>
                                     <div class="mt-3 pt-3">

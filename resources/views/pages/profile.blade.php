@@ -87,13 +87,13 @@
                                         <table>
                                             <tr>
                                                 <th>Nama</th>
-                                                <th>:</th>
-                                                <td>Rifki Alfiansyah Kamil</td>
+                                                <th class="ps-3 pe-3">:</th>
+                                                <td>{{ $data->name }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Tipe Admin</th>
-                                                <th>:</th>
-                                                <td>Superadmin</td>
+                                                <th class="ps-3 pe-3"> : </th>
+                                                <td>{{ Str::upper($data->Roles->roles_name) }}</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -101,8 +101,11 @@
                                 </div>
                                 <div class="card">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-danger deactivate-account">log
-                                            Out</button>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger deactivate-account">log
+                                                Out</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
