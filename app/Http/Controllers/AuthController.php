@@ -25,6 +25,18 @@ class AuthController extends Controller
                 'email' =>  ['required', 'email'],
                 'password' => ['required'],
             ]);
+
+            $user = User::where('email', $request->email)->first();
+            if ($user == null) {
+                return back()->withErrors([
+                    'loginErr' => 'User Not Found',
+                ]);
+            } elseif ($user->is_active == false) {
+                return back()->withErrors([
+                    'loginErr' => 'User Not Active, Please ask to your Administrator',
+                ]);
+            }
+
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 $request->session()->regenerate();
                 return redirect()->intended('dashboard');
