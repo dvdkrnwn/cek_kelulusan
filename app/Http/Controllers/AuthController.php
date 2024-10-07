@@ -46,7 +46,8 @@ class AuthController extends Controller
                 'loginErr' => 'Login Failed!',
             ]);
         } catch (\Throwable $th) {
-            dd($th);
+            throw new Exception("Error Processing Request", 1);
+    
         }
     }
 

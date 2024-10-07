@@ -82,13 +82,15 @@
         </li>
 
         {{-- Menu Manage --}}
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Menu Manage</span>
-        </li>
-        <li class="menu-item">
-            <a href="{{ route('manage.user_list') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Manage User</div>
-            </a>
-        </li>
+        @if (auth()->user()->Roles->roles_name == 'Admin' || auth()->user()->Roles->roles_name == 'admin')
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Menu Manage</span>
+            </li>
+            <li class="menu-item">
+                <a href="{{ route('manage.user_list') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Manage User</div>
+                </a>
+            </li>
+        @endif
 </aside>

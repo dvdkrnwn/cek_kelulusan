@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/post', [PrediksiKelulusan::class, 'PrediksiKelulusan'])->name('process');
     });
 
-    Route::name('manage.')->prefix('/manage')->group(function () {
+    Route::name('manage.')->middleware(['is_admin'])->prefix('/manage')->group(function () {
         Route::get('/user/list', [ManageController::class, 'Manage_User_List'])->name('user_list');
         Route::get('/user/add', [ManageController::class, 'Manage_User_Show_Add'])->name('user_show_add');
         Route::post('/user/add', [ManageController::class, 'Manage_User_Add'])->name('user_add');
