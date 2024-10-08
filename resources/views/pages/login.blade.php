@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('sneat') }}/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('sneat') }}/assets/img/logo.png" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,11 +82,16 @@
                                     <label class="form-label" for="password">password</label>
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                    <input
+                                      type="password"
+                                      id="password"
+                                      class="form-control"
+                                      name="password"
+                                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                      aria-describedby="password"
+                                    />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
+                                  </div>
                             </div>
                             <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
                         </form>
@@ -99,10 +104,10 @@
     <!-- / Content -->
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('sneat') }}/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="{{ asset('sneat') }}/assets/vendor/libs/popper/popper.js"></script>
-    <script src="{{ asset('sneat') }}/assets/vendor/js/bootstrap.js"></script>
-    <script src="{{ asset('sneat') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="{{asset('sneat') }}/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="{{asset('sneat') }}/assets/vendor/libs/popper/popper.js"></script>
+    <script src="{{asset('sneat') }}/assets/vendor/js/bootstrap.js"></script>
+    <script src="{{asset('sneat') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     @error('loginErr')
         <script>
             function showAlert() {
@@ -118,13 +123,13 @@
         </script>
     @enderror
 
-    <script src="{{ asset('sneat') }}/assets/vendor/js/menu.js"></script>
+    <script src="{{asset('sneat') }}/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="{{ asset('sneat') }}/assets/js/main.js"></script>
+    <script src="{{asset('sneat') }}/assets/js/main.js"></script>
 
     <!-- Page JS -->
 
