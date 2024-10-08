@@ -56,6 +56,7 @@ class PrediksiKelulusan extends Controller
 
         $rows = $data[0];
         $dataset = [];
+        $apiKey = 'Application: gG1TSp5iVTIbTIzvgpH4ve830IeNrHpExsCc2kib8JySbrN4rmLIzOVELDSuV4qgF78ns3b4HzttTzLClE9oOu4bSm61vtlUcBvTgwmxzJjXla7YenpZtgimcraEIEVJ';
 
         foreach ($rows as $row) {
             $ips_1 = floatval($row['ips_1']);
@@ -64,7 +65,11 @@ class PrediksiKelulusan extends Controller
 
             // REQUEST API KE PREDIKSI
             try {
-                $res = Http::post('http://127.0.0.1:5555/predict', [
+                $res = Http::withHeaders([
+                    'Authorization' => 'Bearer ' . $apiKey,
+                    'Content-Type' => 'application/json',
+                ])->
+                post('http://127.0.0.1:5555/predict', [
                     'ips_1' => $ips_1,
                     'ips_2' => $ips_2,
                     'ips_3' => $ips_3,
