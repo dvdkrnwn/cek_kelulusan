@@ -6,6 +6,7 @@ use App\Imports\YourExcelImport;
 use App\Models\Mahasiswa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -54,6 +55,7 @@ class PrediksiKelulusan extends Controller
         $data = Excel::toArray(new YourExcelImport, $file);
 
         $rows = $data[0];
+        $dataset = [];
 
         foreach ($rows as $row) {
             $ips_1 = floatval($row['ips_1']);
@@ -69,7 +71,7 @@ class PrediksiKelulusan extends Controller
                 ]);
 
                 if ($res->successful() && $res['code'] == 201) {
-                    Mahasiswa::create([
+                    $dataset[] = [
                         'NIM' => $row['nim'],
                         'name' => $row['nama'],
                         'J_Kelamin' => $row['jenis_kelamin'],
@@ -80,9 +82,10 @@ class PrediksiKelulusan extends Controller
                         'Jalur_Masuk' => $row['jalur_masuk'],
                         'Tahun_Angkatan' => $row['tahun_angkatan'],
                         'Keterangan' => $res['data'],
-                    ]);
+                        'created_at' => Carbon::now(),
+                    ];
                 } else {
-                    Mahasiswa::create([
+                    $dataset[] = [
                         'NIM' => $row['nim'],
                         'name' => $row['nama'],
                         'J_Kelamin' => $row['jenis_kelamin'],
@@ -93,10 +96,11 @@ class PrediksiKelulusan extends Controller
                         'Jalur_Masuk' => $row['jalur_masuk'],
                         'Tahun_Angkatan' => $row['tahun_angkatan'],
                         'Keterangan' => null,
-                    ]);
+                        'created_at' => Carbon::now(),
+                    ];
                 }
             } catch (\Throwable $th) {
-                Mahasiswa::create([
+                $dataset[] = [
                     'NIM' => $row['nim'],
                     'name' => $row['nama'],
                     'J_Kelamin' => $row['jenis_kelamin'],
@@ -107,11 +111,13 @@ class PrediksiKelulusan extends Controller
                     'Jalur_Masuk' => $row['jalur_masuk'],
                     'Tahun_Angkatan' => $row['tahun_angkatan'],
                     'Keterangan' => null,
-                ]);
+                    'created_at' => Carbon::now(),
+                ];
             }
 
         }
 
+        DB::table('mahasiswas')->insert($dataset);
         return redirect()->route('predict.list');
 
     }

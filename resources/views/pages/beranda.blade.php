@@ -18,7 +18,7 @@
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         {{--  --}}
-                        <div class="dropdown me-3">
+                        {{-- <div class="dropdown me-3">
                             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Tahun {{ $tahun_data }}
@@ -30,7 +30,21 @@
                                     </li>
                                 @endforeach
                             </ul>
+                        </div> --}}
+
+                        <div class="dropdown me-3">
+                            <label for="yearSelect" class="form-label">Tahun</label>
+                            <select id="yearSelect" class="form-select" style="width: 15%"
+                                onchange="location = this.value;">
+                                <option value="{{ route('dashboard', ['year' => $tahun_data]) }}">Tahun
+                                    {{ $tahun_data }}</option>
+                                @foreach ($tahun as $tahun)
+                                    <option value="{{ route('dashboard', ['year' => $tahun]) }}">{{ $tahun }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
+
                         <!-- Basic Bootstrap Table -->
 
                         <div class="row mt-3">

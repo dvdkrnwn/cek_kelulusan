@@ -24,7 +24,7 @@
                         <div class="d-flex">
                             <a type="button" href="{{ route('predict.add') }}" class="btn btn-primary me-3">Tambah
                                 Data</a>
-                            <div class="dropdown me-3">
+                            {{-- <div class="dropdown me-3">
                                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Angkatan
@@ -36,20 +36,42 @@
                                         </li>
                                     @endforeach
                                 </ul>
+                            </div> --}}
+                            <div class="me-3">
+                                <select id="angkatanSelect" class="form-select form-select-md bg-primary text-white"
+                                    onchange="location = this.value;">
+                                    <option value="0">Pilih Angkatan</option>
+                                    @foreach ($angkatan as $tahun)
+                                        <option value="{{ route('predict.list', ['year' => $tahun]) }}">
+                                            {{ $tahun }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="dropdown">
-                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+
+                            {{-- <div class="dropdown">
+                                <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Status
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop2">
                                     @foreach ($keterangan as $t)
                                         <li><a class="dropdown-item"
                                                 href="{{ route('predict.list', ['status' => $t]) }}">{{ $t }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
+                            </div> --}}
+                            <div class="me-3">
+                                <select id="statusSelect" class="form-select form-select-md bg-primary text-white"
+                                    onchange="location = this.value;">
+                                    <option value="">Pilih Status</option>
+                                    @foreach ($keterangan as $t)
+                                        <option value="{{ route('predict.list', ['status' => $t]) }}">
+                                            {{ $t }}</option>
+                                    @endforeach
+                                </select>
                             </div>
+
                         </div>
 
                         <!-- Right Side: Search Form -->
