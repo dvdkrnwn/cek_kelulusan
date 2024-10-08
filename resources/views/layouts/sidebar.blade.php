@@ -76,7 +76,7 @@
         </li>
         <li class="menu-item">
             <a href="{{ route('profile') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Account Settings">Profil Akun</div>
             </a>
         </li>
@@ -88,7 +88,7 @@
             </li>
             <li class="menu-item">
                 <a href="{{ route('manage.user_list') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <i class="menu-icon tf-icons bi bi-people-fill"></i>
                     <div data-i18n="Account Settings">Manage User</div>
                 </a>
             </li>
