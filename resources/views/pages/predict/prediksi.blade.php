@@ -38,7 +38,7 @@
                                 </ul>
                             </div> --}}
                             <div class="me-3">
-                                <select id="angkatanSelect" class="form-select form-select-md bg-primary text-white"
+                                <select id="angkatanSelect" class="form-select form-select-md bg-secondary text-white"
                                     onchange="location = this.value;">
                                     <option value="0">Pilih Angkatan</option>
                                     @foreach ($angkatan as $tahun)
@@ -62,7 +62,7 @@
                                 </ul>
                             </div> --}}
                             <div class="me-3">
-                                <select id="statusSelect" class="form-select form-select-md bg-primary text-white"
+                                <select id="statusSelect" class="form-select form-select-md bg-secondary text-white"
                                     onchange="location = this.value;">
                                     <option value="">Pilih Status</option>
                                     @foreach ($keterangan as $t)
