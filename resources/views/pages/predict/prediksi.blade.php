@@ -130,8 +130,16 @@
                                                         <span
                                                             class="badge bg-label-danger me-1">{{ $mahasiswa->Keterangan }}</span>
                                                     @elseif ($mahasiswa->Keterangan == null)
-                                                        <form action="#" method="GET">
+                                                        <form
+                                                            action="{{ route('predict.single.process', $mahasiswa->id) }}"
+                                                            method="POST">
                                                             @csrf
+                                                            <input name='ips_1' value="{{ $mahasiswa->IPS_1 }}"
+                                                                type="hidden" />
+                                                            <input name='ips_2' value="{{ $mahasiswa->IPS_2 }}"
+                                                                type="hidden" />
+                                                            <input name='ips_3' value="{{ $mahasiswa->IPS_3 }}"
+                                                                type="hidden" />
                                                             <button type="submit"
                                                                 class="btn btn-primary">Predict</button>
                                                         </form>

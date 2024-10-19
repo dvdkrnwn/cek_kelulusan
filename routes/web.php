@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/list', [PrediksiKelulusan::class, 'PrediksiKelulusanView'])->name('list');
         Route::get('/add', [PrediksiKelulusan::class, 'PrediksiKelulusanAdd'])->name('add');
         Route::post('/post', [PrediksiKelulusan::class, 'PrediksiKelulusan'])->name('process');
+        Route::post('/single-post/{id}', [PrediksiKelulusan::class, 'SinglePrediksiKelulusan'])->name('single.process');
     });
 
     Route::name('manage.')->prefix('/manage')->group(function () {

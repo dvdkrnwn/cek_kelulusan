@@ -28,6 +28,11 @@
                                     enctype="multipart/form-data" class="mb-3">
                                     @csrf
                                     <div class="mb-3">
+                                        <label for="name" class="form-label">Type Upload</label>
+                                        <select class="form-control mb-3" id="name" name="keyword">
+                                            <option value="upload_predict"> Upload And Predict </option>
+                                            <option value="only_upload"> Only Upload </option>
+                                        </select>
                                         <label for="name" class="form-label">Upload File Here</label>
                                         <input type="file" class="form-control" id="name" name="file"
                                             required placeholder="Enter your file" autofocus accept=".xlsx, .csv" />
